@@ -1,0 +1,29 @@
+.new-emp{
+    background-color:black;
+    padding:1rem;
+    margin:2rem auto;
+    width:50rem;
+    max-width: 95%;
+    border-radius: 12px;
+    text-align:center;
+    color: white;
+    box-shadow: 0 1px 8px rgba(0,0,0,0,25);
+}
+.new-emp button{
+    font:inherit;
+    cursor: pointer;
+    padding: .6rem 1rem;
+    border:1px solid purple;
+    background-color:purple;
+    color:white;
+
+    border-radius: 6px;
+
+
+}
+.new-emp button:hover,
+.new-emp button:active{
+    background-color: purple;
+    border-color: purple;
+    
+}
