@@ -1,41 +1,37 @@
+import logo from './logo.svg';
+import './App.css';
+import EmployeeName from './employee/EmployeeName';
+import NewEmployee from './employee/NewEmployee';
+import { useState } from 'react';
+import Employee from './employee/Employee';
+import EmployeeFilter from './employee/EmployeeFilter';
+import EmployeeForm from './employee/EmployeeForm';
+import { EmployeeContext } from './employee/employee-context';
+import EmployeeContextProvider from './employee/employee-context';
+import { UseSelector, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import EmployeForm from './EmpForm';
-import Emps from './Emps';
-import NewEmploye from './NewEmp';
-// import {useState}from 'react';
-// import { EmpContext } from './emp-context';
-import EmpContextProvider from './emp-context';
-import {useSelector,useDispatch} from 'react-redux';
-import { sendEmpData } from './EMPLOYEES';
 
-
-const App=() =>{
+const App=()=> {
   const items=useSelector(state=>state.items);
-  const dispatch=useDispatch();
-
-
   useEffect(
     ()=>{
-      dispatch(sendEmpData(items))
-
-      // fetch('https://empreact-default-rtdb.firebaseio.com/emp.json',{
-      //   method:'PUT',
-      //   body:JSON.stringify(items)
-      // })
+      fetch('https://reactcustomer-94acd-default-rtdb.asia-southeast1.firebasedatabase.app/employee.json',{
+        method:'PUT',
+        body:JSON.stringify(items)
+      })
     },
-    [items,dispatch]
-  );
+    [items]
+  )
 
   return (
-    <EmpContextProvider>
+    <EmployeeContextProvider>
       <div>
-        <h1> Let's get started</h1>
-        <NewEmploye >
-          <EmployeForm />
-        </NewEmploye>
-        <Emps/>
+        <NewEmployee>
+        <EmployeeForm/>
+        </NewEmployee>
+        <Employee/>
       </div>
-    </EmpContextProvider>
+      </EmployeeContextProvider>
   );
 }
 
