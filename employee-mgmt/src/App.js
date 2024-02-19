@@ -6,7 +6,7 @@ import NewEmploye from './NewEmp';
 // import { EmpContext } from './emp-context';
 import EmpContextProvider from './emp-context';
 import {useSelector,useDispatch} from 'react-redux';
-import { sendEmpData } from './Store';
+import { sendEmpData } from './EMPLOYEES';
 
 
 const App=() =>{

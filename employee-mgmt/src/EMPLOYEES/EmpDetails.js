@@ -1,20 +1,30 @@
+
+import React, { useState } from 'react';
 import EmpDate from './EmpDate';
 import './EmpDetails.css'
 
 
-function EmpDetails(props){
+
+
+const EmpDetails=(props)=>{
+
+    // let name=props.name;
+
+    const[name,setName]=useState(props.name);
+    const clickHandler=()=>{
+        console.log("clicked!");
+        setName("changed");
+
+    }
 
     return(
-        <div>
-        <div className="Emp-details">
-        <div className='Emp-details-doj'>
-        <EmpDate date={props.doj}/>
-        </div>
-        <div><h2>{props.name}</h2></div>
-        <div className='Emp-details-exp'>{props.exp}</div>
-        
-    </div>
-        </div>
+            <div className="Emp-details">
+                <EmpDate date={props.doj}/>
+                <div><h2>{name}</h2></div>
+                <div className='Emp-details-exp'>{props.exp}</div>
+                <button onClick={clickHandler}>Change Title</button>
+            </div>
+
     );
 }
 export default EmpDetails
