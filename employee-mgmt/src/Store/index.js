@@ -29,7 +29,7 @@ export const sendEmployeeData = (employeeData) => {
     return async (dispatch) => {
 
         const sendRequest = async () => {
-            const response = await  fetch('https://employees-9eeef-default-rtdb.firebaseio.com/', {
+            const response = await  fetch('https://employees-9eeef-default-rtdb.firebaseio.com/employee.json', {
                 method: 'PUT',
                 body: JSON.stringify(employeeData),
               });
